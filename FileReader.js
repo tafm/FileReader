@@ -261,6 +261,10 @@
 
 
     function readFile(_file, format, encoding) {
+      if (self.readyState === self.DONE) {
+        self.readyState = self.EMPTY
+      }
+
       file = _file;
       if (!file || !file.name || !(file.path || file.stream || file.buffer)) {
         throw new Error("cannot read as File: " + JSON.stringify(file));
