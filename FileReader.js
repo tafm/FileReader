@@ -263,6 +263,7 @@
     function readFile(_file, format, encoding) {
       if (self.readyState === self.DONE) {
         self.readyState = self.EMPTY
+        emitter = new EventEmitter
       }
 
       file = _file;
